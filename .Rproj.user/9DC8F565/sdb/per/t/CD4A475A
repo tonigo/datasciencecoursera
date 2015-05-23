@@ -1,0 +1,16 @@
+{
+    "contents" : "makeCacheMatrix <- function(x = matrix()){\n  m <- NULL\n  set <- function(y){\n    x <<- y\n    m <<- NULL\n  }\n  ##creates the special matrix\n  \n  get <- function() x\n  setmatrix <- function(solve) m <<- solve\n  getmatrix <- function() m\n  list (set = set, get = get,\n        setmatrix = setmatrix,\n        getmatrix = getmatrix)\n}\n\ncacheSolve <- function(x=matrix(), ...){\n  m <- x$getmatrix()\n  if (!is.null(m)){\n    message(\"getting cached data\")\n    return(m)\n  }\n  matrix <- x$get()\n  m <- solve(matrix, ...)\n  x$setmatrix(m)\n  m\n}\n##computes the inverse of the special matrix\n\na <- makeCacheMatrix()\n## Store a function in a variable a\n\na$set(matrix(1:4,2,2))\n## stores a matrix\n\ncacheSolve(a)\n## provides result\n",
+    "created" : 1432409874557.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "253353212",
+    "id" : "CD4A475A",
+    "lastKnownWriteTime" : 1432409844,
+    "path" : "C:/Users/amocenigo001/datasciencecoursera/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "ProgrammingAssignment2/cachematrix.R",
+    "properties" : {
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
